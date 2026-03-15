@@ -20,7 +20,8 @@ services:
       - key: AI_MODE
         value: real
 
-staticSites:
+static_sites:
+
   # Frontend - Static Site
   - name: legal-guardian-web
     buildCommand: pnpm install && pnpm --filter @legal-guardian/frontend build
