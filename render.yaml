@@ -3,7 +3,6 @@ services:
   - type: web
     name: legal-guardian-api
     runtime: node
-
     plan: free
     buildCommand: pnpm install
     startCommand: bun apps/backend/src/index.ts
@@ -18,20 +17,32 @@ services:
         generateValue: true
       - key: OPENAI_API_KEY
         sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GITHUB_CLIENT_ID
+        sync: false
+      - key: GITHUB_CLIENT_SECRET
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
       - key: AI_MODE
         value: real
 
+static_sites:
   # Frontend - Static Site
-  - type: web
-    name: legal-guardian-web
-    runtime: static
+  - name: legal-guardian-web
     buildCommand: pnpm install && pnpm --filter @legal-guardian/frontend build
     staticPublishPath: apps/frontend/dist
-
     envVars:
       - key: VITE_API_URL
         sync: false
       - key: VITE_GOOGLE_CLIENT_ID
         sync: false
       - key: VITE_GITHUB_CLIENT_ID
+        sync: false
+      - key: VITE_STRIPE_PUBLISHABLE_KEY
         sync: false
