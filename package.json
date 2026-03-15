@@ -1,0 +1,19 @@
+{
+  "name": "legal-guardian-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "bun test",
+    "dev": "concurrently \"pnpm --filter @legal-guardian/backend dev\" \"pnpm --filter @legal-guardian/frontend dev\" -c \"blue,magenta\" --names \"backend,frontend\""
+  },
+  "devDependencies": {
+    "bun": "^1.3.8",
+    "bun-types": "latest",
+    "concurrently": "^9.2.1"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

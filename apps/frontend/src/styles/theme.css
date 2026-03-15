@@ -1,0 +1,138 @@
+:root {
+  /* Palette - Legal Guardian (Serious & Professional) */
+
+  /* Primary Backgrounds */
+  --color-start: #0f172a; /* Slate 900 */
+  --color-end: #1e293b; /* Slate 800 */
+
+  /* Accents */
+  --color-gold-glow: #e2b340; /* Muted Gold */
+  --color-gold-dim: #947600;
+  --color-cyan-glow: #38bdf8; /* Sky 400 */
+
+  /* Surfaces */
+  --glass-bg: rgba(15, 23, 42, 0.85); /* Darker, less transparent */
+  --glass-border: rgba(148, 163, 184, 0.1); /* Slate 400, subtle */
+
+  /* Text */
+  --color-text-bright: #f8fafc; /* Slate 50 */
+  --color-text-dim: #94a3b8; /* Slate 400 */
+
+  /* Status */
+  --color-danger: #ef4444; /* Red 500 */
+  --color-success: #10b981; /* Emerald 500 */
+  --color-warning: #f59e0b; /* Amber 500 */
+
+  /* Typography */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Spacing */
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* Radius */
+  --radius-lg: 8px; /* Reduced from 16px for more formal look */
+  --radius-xl: 12px;
+
+  /* Effects */
+  --glow-gold: 0 0 15px rgba(226, 179, 64, 0.15); /* Subtler */
+  --glow-text: none; /* Removed text glow for readability */
+  --ease-elastic: cubic-bezier(0.16, 1, 0.3, 1); /* Less bouncy, more solid */
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s var(--ease-out) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s var(--ease-out) forwards;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+}
+
+body {
+  background-color: var(--color-start);
+  background-image:
+    radial-gradient(circle at 50% 0%, #112240 0%, transparent 50%),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(100, 255, 218, 0.05) 0%,
+      transparent 30%
+    );
+  color: var(--color-text-bright);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  color: var(--color-text-bright);
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(255, 215, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

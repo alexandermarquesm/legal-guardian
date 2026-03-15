@@ -1,0 +1,436 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-01-30T20:37:21.171Z",
+  "stack": {
+    "primaryLanguage": "typescript",
+    "languages": [
+      "javascript",
+      "typescript"
+    ],
+    "frameworks": [],
+    "buildTools": [
+      "pnpm-workspace"
+    ],
+    "testFrameworks": [],
+    "packageManager": null,
+    "isMonorepo": true,
+    "hasDocker": false,
+    "hasCI": false
+  },
+  "structure": {
+    "totalFiles": 35,
+    "topDirectories": [
+      {
+        "name": "apps",
+        "fileCount": 29
+      },
+      {
+        "name": "bun.lock",
+        "fileCount": 1
+      },
+      {
+        "name": "package.json",
+        "fileCount": 1
+      },
+      {
+        "name": "packages",
+        "fileCount": 2
+      },
+      {
+        "name": "pnpm-workspace.yaml",
+        "fileCount": 1
+      },
+      {
+        "name": "project_prompt.md",
+        "fileCount": 1
+      }
+    ],
+    "languageDistribution": [
+      {
+        "extension": ".ts",
+        "count": 10
+      },
+      {
+        "extension": ".tsx",
+        "count": 8
+      },
+      {
+        "extension": ".json",
+        "count": 7
+      },
+      {
+        "extension": ".css",
+        "count": 3
+      },
+      {
+        "extension": ".html",
+        "count": 2
+      },
+      {
+        "extension": ".md",
+        "count": 1
+      },
+      {
+        "extension": ".yaml",
+        "count": 1
+      },
+      {
+        "extension": ".lock",
+        "count": 1
+      },
+      {
+        "extension": ".tsbuildinfo",
+        "count": 1
+      },
+      {
+        "extension": ".js",
+        "count": 1
+      }
+    ]
+  },
+  "architecture": {
+    "layers": [
+      {
+        "name": "Services",
+        "description": "Business logic and orchestration",
+        "directories": [
+          "apps/backend/tests",
+          "apps/backend/src/usecases",
+          "apps/backend/src/infrastructure"
+        ],
+        "symbolCount": 3,
+        "dependsOn": []
+      },
+      {
+        "name": "Controllers",
+        "description": "Request handling and routing",
+        "directories": [
+          "apps/backend/src/interfaces"
+        ],
+        "symbolCount": 1,
+        "dependsOn": [
+          "Services"
+        ]
+      },
+      {
+        "name": "Components",
+        "description": "UI components and views",
+        "directories": [
+          "apps/frontend/src/components"
+        ],
+        "symbolCount": 5,
+        "dependsOn": []
+      }
+    ],
+    "patterns": [
+      {
+        "name": "Service Layer",
+        "confidence": 0.85,
+        "description": "Encapsulates business logic in service classes",
+        "occurrences": 1
+      },
+      {
+        "name": "Controller",
+        "confidence": 0.9,
+        "description": "Handles incoming requests and returns responses",
+        "occurrences": 1
+      }
+    ],
+    "entryPoints": [
+      "packages/core/src/index.ts",
+      "apps/backend/src/index.ts",
+      "apps/backend/src/domain/index.ts",
+      "apps/frontend/src/main.tsx"
+    ]
+  },
+  "symbols": {
+    "classes": [
+      {
+        "name": "AIService",
+        "kind": "class",
+        "file": "apps/backend/src/infrastructure/AIService.ts",
+        "line": 3,
+        "exported": true
+      },
+      {
+        "name": "AnalyzeDocumentUseCase",
+        "kind": "class",
+        "file": "apps/backend/src/usecases/AnalyzeDocument.ts",
+        "line": 4,
+        "exported": true
+      },
+      {
+        "name": "HttpController",
+        "kind": "class",
+        "file": "apps/backend/src/interfaces/HttpController.ts",
+        "line": 9,
+        "exported": true
+      },
+      {
+        "name": "NegotiateParamsUseCase",
+        "kind": "class",
+        "file": "apps/backend/src/usecases/NegotiateParams.ts",
+        "line": 4,
+        "exported": true
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "ApiResponse",
+        "kind": "interface",
+        "file": "packages/core/src/index.ts",
+        "line": 38,
+        "exported": true
+      },
+      {
+        "name": "Clause",
+        "kind": "interface",
+        "file": "packages/core/src/index.ts",
+        "line": 3,
+        "exported": true
+      },
+      {
+        "name": "Clause",
+        "kind": "interface",
+        "file": "apps/frontend/src/vite-env.d.ts",
+        "line": 5,
+        "exported": true
+      },
+      {
+        "name": "DocumentAnalysis",
+        "kind": "interface",
+        "file": "packages/core/src/index.ts",
+        "line": 13,
+        "exported": true
+      },
+      {
+        "name": "DocumentAnalysis",
+        "kind": "interface",
+        "file": "apps/frontend/src/vite-env.d.ts",
+        "line": 15,
+        "exported": true
+      },
+      {
+        "name": "NegotiationEmail",
+        "kind": "interface",
+        "file": "packages/core/src/index.ts",
+        "line": 29,
+        "exported": true
+      },
+      {
+        "name": "NegotiationRequest",
+        "kind": "interface",
+        "file": "packages/core/src/index.ts",
+        "line": 23,
+        "exported": true
+      },
+      {
+        "name": "ClauseListProps",
+        "kind": "interface",
+        "file": "apps/frontend/src/components/ClauseList.tsx",
+        "line": 5,
+        "exported": false
+      },
+      {
+        "name": "NegotiationPanelProps",
+        "kind": "interface",
+        "file": "apps/frontend/src/components/NegotiationPanel.tsx",
+        "line": 3,
+        "exported": false
+      },
+      {
+        "name": "RiskMeterProps",
+        "kind": "interface",
+        "file": "apps/frontend/src/components/RiskMeter.tsx",
+        "line": 3,
+        "exported": false
+      },
+      {
+        "name": "SignatureSealProps",
+        "kind": "interface",
+        "file": "apps/frontend/src/components/SignatureSeal.tsx",
+        "line": 3,
+        "exported": false
+      },
+      {
+        "name": "UploadDropzoneProps",
+        "kind": "interface",
+        "file": "apps/frontend/src/components/UploadDropzone.tsx",
+        "line": 3,
+        "exported": false
+      }
+    ],
+    "functions": [],
+    "types": [
+      {
+        "name": "RiskLevel",
+        "kind": "type",
+        "file": "packages/core/src/index.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "RiskLevel",
+        "kind": "type",
+        "file": "apps/frontend/src/vite-env.d.ts",
+        "line": 3,
+        "exported": true
+      }
+    ],
+    "enums": []
+  },
+  "publicAPI": [
+    {
+      "name": "AIService",
+      "kind": "class",
+      "file": "apps/backend/src/infrastructure/AIService.ts",
+      "line": 3,
+      "exported": true
+    },
+    {
+      "name": "AnalyzeDocumentUseCase",
+      "kind": "class",
+      "file": "apps/backend/src/usecases/AnalyzeDocument.ts",
+      "line": 4,
+      "exported": true
+    },
+    {
+      "name": "ApiResponse",
+      "kind": "interface",
+      "file": "packages/core/src/index.ts",
+      "line": 38,
+      "exported": true
+    },
+    {
+      "name": "Clause",
+      "kind": "interface",
+      "file": "packages/core/src/index.ts",
+      "line": 3,
+      "exported": true
+    },
+    {
+      "name": "Clause",
+      "kind": "interface",
+      "file": "apps/frontend/src/vite-env.d.ts",
+      "line": 5,
+      "exported": true
+    },
+    {
+      "name": "DocumentAnalysis",
+      "kind": "interface",
+      "file": "packages/core/src/index.ts",
+      "line": 13,
+      "exported": true
+    },
+    {
+      "name": "DocumentAnalysis",
+      "kind": "interface",
+      "file": "apps/frontend/src/vite-env.d.ts",
+      "line": 15,
+      "exported": true
+    },
+    {
+      "name": "HttpController",
+      "kind": "class",
+      "file": "apps/backend/src/interfaces/HttpController.ts",
+      "line": 9,
+      "exported": true
+    },
+    {
+      "name": "NegotiateParamsUseCase",
+      "kind": "class",
+      "file": "apps/backend/src/usecases/NegotiateParams.ts",
+      "line": 4,
+      "exported": true
+    },
+    {
+      "name": "NegotiationEmail",
+      "kind": "interface",
+      "file": "packages/core/src/index.ts",
+      "line": 29,
+      "exported": true
+    },
+    {
+      "name": "NegotiationRequest",
+      "kind": "interface",
+      "file": "packages/core/src/index.ts",
+      "line": 23,
+      "exported": true
+    },
+    {
+      "name": "RiskLevel",
+      "kind": "type",
+      "file": "packages/core/src/index.ts",
+      "line": 1,
+      "exported": true
+    },
+    {
+      "name": "RiskLevel",
+      "kind": "type",
+      "file": "apps/frontend/src/vite-env.d.ts",
+      "line": 3,
+      "exported": true
+    }
+  ],
+  "dependencies": {
+    "mostImported": [
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/backend/src/infrastructure/AIService.ts",
+        "importedBy": 4
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/backend/src/domain/index.ts",
+        "importedBy": 2
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/backend/src/interfaces/HttpController.ts",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/backend/src/usecases/AnalyzeDocument.ts",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/backend/src/usecases/NegotiateParams.ts",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/frontend/src/styles/theme.css",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/frontend/src/styles/layout.css",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/frontend/src/App.tsx",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/frontend/src/components/UploadDropzone.tsx",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/frontend/src/components/RiskMeter.tsx",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/frontend/src/components/ClauseList.tsx",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/frontend/src/components/NegotiationPanel.tsx",
+        "importedBy": 1
+      },
+      {
+        "file": "/home/gangplank/projects/legal-guardian/apps/frontend/src/components/SignatureSeal.tsx",
+        "importedBy": 1
+      }
+    ]
+  },
+  "stats": {
+    "totalSymbols": 18,
+    "exportedSymbols": 13,
+    "analysisTimeMs": 59
+  }
+}

@@ -1,0 +1,164 @@
+.negotiation-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
+  background-color: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(30, 41, 59, 0.4);
+  z-index: 2;
+}
+
+.panel-title {
+  color: var(--color-text-dim);
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.panel-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  z-index: 2;
+  overflow-y: hidden;
+  margin-top: var(--space-4); /* Restored gap as requested */
+}
+
+.empty-state {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-dim);
+  text-align: center;
+  padding: var(--space-8);
+  opacity: 0.8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 0; /* Reset margin for empty state if needed */
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-4);
+  display: block;
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+.email-preview {
+  color: var(--color-text-bright);
+  background: rgba(30, 41, 59, 0.4); /* Matches header bg */
+  border-top: 1px solid transparent;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer; /* Indicates interactivity */
+}
+
+.email-preview:hover {
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.email-preview.copied {
+  border-top: 1px solid var(--color-success);
+  background: rgba(16, 185, 129, 0.1); /* Subtle green tint */
+}
+
+.email-body {
+  font-family: var(--font-sans);
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin: 0;
+  color: #cbd5e1;
+  background: transparent;
+  padding: var(--space-6);
+  /* Removed extra top padding since button is gone */
+  border: none;
+  box-shadow: none;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.email-body::-webkit-scrollbar {
+  width: 8px;
+}
+.email-body::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+.email-body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.copy-feedback {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-6);
+  background: var(--color-success);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.2s ease;
+  z-index: 20;
+  pointer-events: none; /* Let clicks pass through */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-accent {
+  background: var(--color-gold-glow);
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.btn-accent:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-accent:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}

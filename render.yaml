@@ -1,0 +1,35 @@
+services:
+  # Backend - Web Service
+  - type: web
+    name: legal-guardian-api
+    runtime: bun
+    plan: free # Você pode mudar para 'starter' se precisar de mais recursos
+    buildCommand: pnpm install
+    startCommand: bun apps/backend/src/index.ts
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false # Adicione o valor no painel da Render
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false # Adicione o valor no painel da Render
+      - key: AI_MODE
+        value: real
+
+  # Frontend - Static Site
+  - type: static
+    name: legal-guardian-web
+    runtime: static
+    buildCommand: pnpm install && pnpm --filter @legal-guardian/frontend build
+    publishPath: apps/frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false # Adicione a URL do seu backend aqui
+      - key: VITE_GOOGLE_CLIENT_ID
+        sync: false
+      - key: VITE_GITHUB_CLIENT_ID
+        sync: false
