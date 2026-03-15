@@ -18,7 +18,6 @@ function App() {
 
   // Auth & Access State
   const [user, setUser] = useState<any>(null);
-  const [hasPremium, setHasPremium] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isPricingOpen, setIsPricingOpen] = useState(false);
   const [pendingFile, setPendingFile] = useState<File | null>(null);
@@ -233,8 +232,7 @@ function App() {
 
           if (response.ok) {
             const data = await response.json();
-            const serverCredits = data.user.credits;
-
+            
             setUser(data.user); // Update valid-of-truth from server
             localStorage.setItem("user", JSON.stringify(data.user));
 
@@ -279,7 +277,6 @@ function App() {
 
   const handleLogout = () => {
     setUser(null);
-    setHasPremium(false);
     localStorage.removeItem("token");
     setAnalysis(null);
   };
