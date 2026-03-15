@@ -21,10 +21,12 @@ services:
         value: real
 
   # Frontend - Static Site
-  - type: static
+  - type: web
     name: legal-guardian-web
+    runtime: static
     buildCommand: pnpm install && pnpm --filter @legal-guardian/frontend build
-    publishPath: apps/frontend/dist
+    staticPublishPath: apps/frontend/dist
+
     envVars:
       - key: VITE_API_URL
         sync: false
