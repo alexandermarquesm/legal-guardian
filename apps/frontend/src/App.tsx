@@ -33,7 +33,7 @@ function App() {
     // 2. Fetch fresh data from backend (Source of Truth)
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:4000/api/auth/profile", {
+      fetch(`${import.meta.env.VITE_API_URL}/api/auth/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => {
@@ -87,7 +87,7 @@ function App() {
 
     try {
       // In dev, we need to point to the backend port
-      const response = await fetch("http://localhost:4000/api/analyze", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/analyze`, {
         method: "POST",
         body: formData,
       });
@@ -125,7 +125,7 @@ function App() {
     setNegotiationEmail(null);
 
     try {
-      const response = await fetch("http://localhost:4000/api/negotiate", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/negotiate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -175,7 +175,7 @@ function App() {
             window.location.pathname,
           );
 
-          const response = await fetch("http://localhost:4000/api/auth/login", {
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ provider: "github", token: code }),
@@ -224,7 +224,7 @@ function App() {
         try {
           console.log(`🔄 Polling profile... Attempt ${attempts + 1}`);
           const response = await fetch(
-            "http://localhost:4000/api/auth/profile",
+            `${import.meta.env.VITE_API_URL}/api/auth/profile`,
             {
               headers: { Authorization: `Bearer ${token}` },
             },

@@ -67,7 +67,7 @@ export const PricingModal: React.FC<PricingModalProps> = ({
 
     try {
       const response = await fetch(
-        "http://localhost:4000/api/payment/checkout",
+        `${import.meta.env.VITE_API_URL}/api/payment/checkout`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
